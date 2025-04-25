@@ -10,9 +10,11 @@
   }
   
   body {
-    font-family: var(--fonte-principal);
+    font-family: 'Roboto', sans-serif;
     color: var(--cor-texto);
-    background-color: #f5f7fa;
+    background-color:#07172d;
+    line-height: 1.6;
+    overflow-x: hidden;
     padding-top: 80px;
   }
   
@@ -23,12 +25,13 @@
 }
 
 .navbar {
-  padding: 15px 0;
   display: flex;
   z-index: 999;
   align-items: center;
-  background-color: var(--cor-fundo);
   transition: all 0.3s ease;
+  padding: 15px 0;
+  align-items: center;
+  background-color:  #1c1c1c;
 }
 
 .navbar-brand {

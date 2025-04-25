@@ -31,6 +31,8 @@ body {
   
   .navbar {
     padding: 15px 0;
+    display: flex;
+    align-items: center;
     background-color: var(--cor-fundo);
     transition: all 0.3s ease;
   }
