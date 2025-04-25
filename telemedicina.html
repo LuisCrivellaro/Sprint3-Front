@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telemedicina - Hospital Sabará</title>
+  <link rel="icon" href="logo-sabara - Copia.png" type="image/png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles-telemedicina.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+          <div class="container">
+              <a class="navbar-brand" href="index.html">
+                  <img src="./logo-sabara.png" alt="Logo Hospital Sabará" class="logo-hospital">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacao" aria-controls="menuNavegacao" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              
+              <div class="collapse navbar-collapse" id="menuNavegacao">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="nav-link active" href="index.html">Início</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="biblioteca-laudos.html">Biblioteca de Laudos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="gerenciamento-documentos.html">Documentos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="telemedicina.html">Telemedicina</a>
+                      </li>
+                      <li class="nav-item botao-login">
+                          <a class="btn btn-primary" href="login.html">Login</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+  <main class="videochamada">
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Consulta por Telemedicina</h1>
+      <div class="video-container">
+        <div class="video-principal">
+          <img src="/api/placeholder/500/300" class="img-fluid" alt="Médico">
+          <p class="nome-usuario">Dr. João Mendes</p>
+        </div>
+        <div class="video-paciente">
+          <img src="/api/placeholder/150/100" class="img-fluid" alt="Paciente">
+          <p class="nome-usuario">Você</p>
+        </div>
+        <div class="controles-video text-center">
+          <button class="btn btn-outline-dark"><i class="fas fa-microphone-slash"></i></button>
+          <button class="btn btn-outline-dark"><i class="fas fa-video"></i></button>
+          <button class="btn btn-danger"><i class="fas fa-phone-slash"></i> Encerrar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="rodape">
+    <div class="container text-center">
+      <p>© 2025 Hospital Sabará. Atendimento digital com segurança e inteligência.</p>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="script-telemedicina.js"></script>
+</body>
+</html>

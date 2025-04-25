@@ -1,0 +1,567 @@
+<!-- biblioteca-laudos.html - Biblioteca de Laudos -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Laudos - Hospital Sabará</title>
+    <link rel="icon" href="logo-sabara - Copia.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles-biblioteca.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./logo-sabara.png" alt="Logo Hospital Sabará" class="logo-hospital">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacao" aria-controls="menuNavegacao" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="menuNavegacao">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="biblioteca-laudos.html">Biblioteca de Laudos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gerenciamento-documentos.html">Documentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="telemedicina.html">Telemedicina</a>
+                        </li>
+                        <li class="nav-item botao-login">
+                            <a class="btn btn-primary" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+      
+        window.addEventListener('scroll', function () {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+          if (scrollTop > lastScrollTop) {
+            // rolando para baixo
+            navbar.style.top = "-80px"; // ajuste conforme a altura real da sua navbar
+          } else {
+            // rolando para cima
+            navbar.style.top = "0";
+          }
+      
+          lastScrollTop = scrollTop;
+        });
+      </script>
+    
+
+    <!-- Seção de Biblioteca de Laudos -->
+    <section class="secao-biblioteca">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="titulo-secao">Biblioteca de Laudos</h1>
+                    <p class="subtitulo-secao">Visualize e gerencie todos os seus documentos médicos em um só lugar</p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-lg-3">
+                    <!-- Painel de Filtros -->
+                    <div class="card card-filtros">
+                        <div class="card-header">
+                            <h4><i class="fas fa-filter me-2"></i>Filtros</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label">Tipo de Documento</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkLaudos" checked>
+                                    <label class="form-check-label" for="checkLaudos">Laudos</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkReceitas" checked>
+                                    <label class="form-check-label" for="checkReceitas">Receitas</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkAtestados" checked>
+                                    <label class="form-check-label" for="checkAtestados">Atestados</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkExames" checked>
+                                    <label class="form-check-label" for="checkExames">Exames</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Período</label>
+                                <select class="form-select" id="filtroPeriodo">
+                                    <option value="todos">Todos</option>
+                                    <option value="30dias">Últimos 30 dias</option>
+                                    <option value="6meses">Últimos 6 meses</option>
+                                    <option value="1ano">Último ano</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="filtroEspecialidade" class="form-label">Especialidade</label>
+                                <select class="form-select" id="filtroEspecialidade">
+                                    <option value="todas">Todas</option>
+                                    <option value="pediatria">Pediatria</option>
+                                    <option value="cardiologia">Cardiologia</option>
+                                    <option value="dermatologia">Dermatologia</option>
+                                    <option value="psicologia">Psicologia</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="filtroPaciente" class="form-label">Paciente</label>
+                                <input type="text" class="form-control" id="filtroPaciente" placeholder="Nome do paciente">
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary" id="btnAplicarFiltros">Aplicar Filtros</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estatísticas -->
+                    <div class="card card-estatisticas mt-4">
+                        <div class="card-header">
+                            <h4><i class="fas fa-chart-pie me-2"></i>Estatísticas</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="estatistica-item">
+                                <div class="estatistica-valor">42</div>
+                                <div class="estatistica-label">Total de Documentos</div>
+                            </div>
+                            <div class="estatistica-item">
+                                <div class="estatistica-valor">12</div>
+                                <div class="estatistica-label">Laudos</div>
+                            </div>
+                            <div class="estatistica-item">
+                                <div class="estatistica-valor">18</div>
+                                <div class="estatistica-label">Receitas</div>
+                            </div>
+                            <div class="estatistica-item">
+                                <div class="estatistica-valor">8</div>
+                                <div class="estatistica-label">Atestados</div>
+                            </div>
+                            <div class="estatistica-item">
+                                <div class="estatistica-valor">4</div>
+                                <div class="estatistica-label">Exames</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <!-- Barra de Busca e Ordenação -->
+                    <div class="card card-busca">
+                        <div class="card-body">
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Buscar documento..." id="buscaDocumento">
+                                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select" id="ordenarPor">
+                                        <option value="data-recente">Data (Mais recente)</option>
+                                        <option value="data-antiga">Data (Mais antiga)</option>
+                                        <option value="nome-az">Nome (A-Z)</option>
+                                        <option value="nome-za">Nome (Z-A)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group w-100" role="group">
+                                        <button type="button" class="btn btn-outline-secondary active" id="btnViewGrid"><i class="fas fa-th-large"></i></button>
+                                        <button type="button" class="btn btn-outline-secondary" id="btnViewList"><i class="fas fa-list"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Documentos (Visualização em Grid) -->
+                    <div class="documentos-grid mt-4" id="visualizacaoGrid">
+                        <div class="row g-4">
+                            <!-- Documento 1 -->
+                            <div class="col-md-4">
+                                <div class="card documento">
+                                    <div class="tipo-documento laudo">
+                                        <i class="fas fa-file-medical"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="titulo-documento">Laudo de Consulta Cardiológica</h5>
+                                        <div class="meta-documento">
+                                            <div class="meta-item"><i class="fas fa-calendar"></i> 20/04/2025</div>
+                                            <div class="meta-item"><i class="fas fa-user-md"></i> Dr. Ricardo Almeida</div>
+                                        </div>
+                                        <p class="descricao-documento">Avaliação cardiológica completa com análise de exames e recomendações.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="badge bg-info">Cardiologia</span>
+                                            <div class="acoes-documento">
+                                                <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documento 2 -->
+                            <div class="col-md-4">
+                                <div class="card documento">
+                                    <div class="tipo-documento receita">
+                                        <i class="fas fa-prescription"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="titulo-documento">Receita Médica</h5>
+                                        <div class="meta-documento">
+                                            <div class="meta-item"><i class="fas fa-calendar"></i> 18/04/2025</div>
+                                            <div class="meta-item"><i class="fas fa-user-md"></i> Dra. Carolina Silva</div>
+                                        </div>
+                                        <p class="descricao-documento">Prescrição de medicamentos para tratamento de alergia.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="badge bg-success">Dermatologia</span>
+                                            <div class="acoes-documento">
+                                                <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documento 3 -->
+                            <div class="col-md-4">
+                                <div class="card documento">
+                                    <div class="tipo-documento atestado">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="titulo-documento">Atestado Médico</h5>
+                                        <div class="meta-documento">
+                                            <div class="meta-item"><i class="fas fa-calendar"></i> 15/04/2025</div>
+                                            <div class="meta-item"><i class="fas fa-user-md"></i> Dr. Fernando Costa</div>
+                                        </div>
+                                        <p class="descricao-documento">Atestado de 3 dias para recuperação pós-tratamento.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="badge bg-warning">Pediatria</span>
+                                            <div class="acoes-documento">
+                                                <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documento 4 -->
+                            <div class="col-md-4">
+                                <div class="card documento">
+                                    <div class="tipo-documento exame">
+                                        <i class="fas fa-microscope"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="titulo-documento">Exame de Sangue</h5>
+                                        <div class="meta-documento">
+                                            <div class="meta-item"><i class="fas fa-calendar"></i> 12/04/2025</div>
+                                            <div class="meta-item"><i class="fas fa-hospital"></i> Lab. Central</div>
+                                        </div>
+                                        <p class="descricao-documento">Hemograma completo com análise detalhada.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="badge bg-danger">Laboratório</span>
+                                            <div class="acoes-documento">
+                                                <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documento 5 -->
+                            <div class="col-md-4">
+                                <div class="card documento">
+                                    <div class="tipo-documento laudo">
+                                        <i class="fas fa-file-medical"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="titulo-documento">Laudo Psicológico</h5>
+                                        <div class="meta-documento">
+                                            <div class="meta-item"><i class="fas fa-calendar"></i> 10/04/2025</div>
+                                            <div class="meta-item"><i class="fas fa-user-md"></i> Dra. Maria Santos</div>
+                                        </div>
+                                        <p class="descricao-documento">Avaliação psicológica com análise comportamental.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="badge bg-primary">Psicologia</span>
+                                            <div class="acoes-documento">
+                                                <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documento 6 -->
+                            <div class="col-md-4">
+                                <div class="card documento">
+                                    <div class="tipo-documento receita">
+                                        <i class="fas fa-prescription"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="titulo-documento">Receita de Antibiótico</h5>
+                                        <div class="meta-documento">
+                                            <div class="meta-item"><i class="fas fa-calendar"></i> 08/04/2025</div>
+                                            <div class="meta-item"><i class="fas fa-user-md"></i> Dr. Paulo Ribeiro</div>
+                                        </div>
+                                        <p class="descricao-documento">Prescrição de antibiótico para infecção respiratória.</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="badge bg-warning">Pediatria</span>
+                                            <div class="acoes-documento">
+                                                <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                                <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Documentos (Visualização em Lista) -->
+                    <div class="documentos-lista mt-4 d-none" id="visualizacaoLista">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th>Nome</th>
+                                        <th>Data</th>
+                                        <th>Especialidade</th>
+                                        <th>Médico</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="badge bg-info"><i class="fas fa-file-medical me-1"></i> Laudo</span></td>
+                                        <td>Laudo de Consulta Cardiológica</td>
+                                        <td>20/04/2025</td>
+                                        <td>Cardiologia</td>
+                                        <td>Dr. Ricardo Almeida</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-success"><i class="fas fa-prescription me-1"></i> Receita</span></td>
+                                        <td>Receita Médica</td>
+                                        <td>18/04/2025</td>
+                                        <td>Dermatologia</td>
+                                        <td>Dra. Carolina Silva</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-warning"><i class="fas fa-clipboard-check me-1"></i> Atestado</span></td>
+                                        <td>Atestado Médico</td>
+                                        <td>15/04/2025</td>
+                                        <td>Pediatria</td>
+                                        <td>Dr. Fernando Costa</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-danger"><i class="fas fa-microscope me-1"></i> Exame</span></td>
+                                        <td>Exame de Sangue</td>
+                                        <td>12/04/2025</td>
+                                        <td>Laboratório</td>
+                                        <td>Lab. Central</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-info"><i class="fas fa-file-medical me-1"></i> Laudo</span></td>
+                                        <td>Laudo Psicológico</td>
+                                        <td>10/04/2025</td>
+                                        <td>Psicologia</td>
+                                        <td>Dra. Maria Santos</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-success"><i class="fas fa-prescription me-1"></i> Receita</span></td>
+                                        <td>Receita de Antibiótico</td>
+                                        <td>08/04/2025</td>
+                                        <td>Pediatria</td>
+                                        <td>Dr. Paulo Ribeiro</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Baixar"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-sm btn-light" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Paginação -->
+                    <nav class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Próximo</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Visualização do Documento -->
+    <div class="modal fade" id="modalDocumento" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloModal">Laudo de Consulta Cardiológica</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="informacoes-documento mb-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Data:</strong> 20/04/2025</p>
+                                <p><strong>Médico:</strong> Dr. Ricardo Almeida</p>
+                                <p><strong>Especialidade:</strong> Cardiologia</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Paciente:</strong> João Silva</p>
+                                <p><strong>Convênio:</strong> Sabará Saúde</p>
+                                <p><strong>ID do Documento:</strong> LAU-2025-04567</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conteudo-documento">
+                        <h6>Anamnese</h6>
+                        <p>Paciente comparece para avaliação de rotina. Relata episódios esporádicos de palpitações aos grandes esforços, sem outros sintomas associados. Nega síncope, dor torácica ou dispneia.</p>
+                        
+                        <h6>Exame Físico</h6>
+                        <p>PA: 120x80 mmHg, FC: 72 bpm, regular. Ausculta cardíaca: Ritmo regular em dois tempos, bulhas normofonéticas, sem sopros. Ausculta pulmonar: Murmúrio vesicular presente e simétrico, sem ruídos adventícios.</p>
+                        
+                        <h6>Exames Complementares</h6>
+                        <p>ECG: Ritmo sinusal, FC 68 bpm, intervalos normais, sem alterações de repolarização.</p>
+                        <p>Ecocardiograma: Função sistólica e diastólica normais. Cavidades com dimensões normais. Valvas sem alterações.</p>
+                        
+                        <h6>Diagnóstico</h6>
+                        <p>Avaliação cardiológica sem evidências de cardiopatia estrutural. Palpitações aos esforços sem repercussão hemodinâmica.</p>
+                        
+                        <h6>Conduta</h6>
+                        <p>Manter atividade física regular. Retorno em 1 ano para reavaliação. Procurar atendimento caso piora dos sintomas.</p>
+                    </div>
+                    
+                    <div class="analise-ia mt-4">
+                        <div class="card bg-light">
+                            <div class="card-header">
+                                <h6 class="mb-0"><i class="fas fa-robot me-2"></i>Análise da IA</h6>
+                            </div>
+                            <div class="card-body">
+                                <p>A Inteligência Artificial analisou este documento e identificou os seguintes pontos relevantes:</p>
+                                <ul>
+                                    <li>Palpitações aos esforços sem alterações em exames complementares sugerem origem benigna.</li>
+                                    <li>Todos os parâmetros cardíacos avaliados estão dentro da normalidade.</li>
+                                    <li>Recomendação de atividade física está alinhada com as diretrizes atuais para saúde cardiovascular.</li>
+                                </ul>
+                                <p class="mb-0">Confiança da análise: <span class="text-success fw-bold">99%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-download me-2"></i>Baixar PDF</button>
+                    <button type="button" class="btn btn-info"><i class="fas fa-share-alt me-2"></i>Compartilhar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Componente Pop-up da IA -->
+    <div class="assistente-ia" id="assistenteIA">
+        <div class="cabecalho-assistente">
+            <div class="info-assistente">
+                <div class="avatar-assistente">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="nome-assistente">SABIA - Assistente Virtual</div>
+            </div>
+            <div class="acoes-assistente">
+                <button class="btn-minimizar" id="minimizarAssistente"><i class="fas fa-minus"></i></button>
+                <button class="btn-fechar" id="fecharAssistente"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="corpo-assistente">
+            <div class="mensagens" id="mensagensAssistente">
+                <div class="mensagem mensagem-assistente">
+                    <div class="conteudo-mensagem">
+                        Olá! Sou SABIA, o assistente virtual do Hospital Sabará. Como posso ajudar você hoje?
+                    </div>
+                    <div class="timestamp">Agora</div>
+                </div>
+            </div>
+            <div class="entrada-mensagem">
+                <input type="text" placeholder="Digite sua pergunta..." id="mensagemUsuario">
+                <button class="btn-enviar" id="enviarMensagem"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="botao-assistente" id="botaoAssistente">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script-bibliotecaa.js"></script>
+</body>
+</html>

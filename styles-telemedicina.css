@@ -1,0 +1,272 @@
+:root {
+  --cor-primaria: #3498db;
+  --cor-secundaria: #2980b9;
+  --cor-terciaria: #e8f4f8;
+  --cor-texto: #333;
+  --cor-texto-claro: #f8f9fa;
+  --cor-fundo: #ffffff;
+  --cor-borda: #e1e1e1;
+  --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --raio-borda: 8px;
+  --espacamento: 100px;
+  --cor-erro: #e74c3c;
+  --cor-sucesso: #2ecc71;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+h1 {
+  color: whitesmoke;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.cabecalho {
+  background-color: var(--cor-fundo);
+  box-shadow: var(--sombra-padrao);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.logo-hospital {
+  height: 50px;
+  width: auto;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 10px;
+}
+
+.navbar-nav .nav-link {
+  color: var(--cor-texto);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--cor-primaria);
+}
+
+.botao-login .btn {
+  margin-left: 15px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  padding: 10px 30px; 
+  background-color: #121212; 
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo-hospital {
+  height: 50px;
+  width: auto;
+}
+
+
+.video-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-padrao);
+  padding: 1.5rem;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.video-principal {
+  position: relative;
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: var(--cor-fundo);
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cor-borda);
+}
+
+.video-principal img,
+.video-paciente img {
+  max-height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.video-paciente {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 180px;
+  height: 120px;
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  border: 3px solid var(--cor-primaria);
+  box-shadow: var(--sombra-padrao);
+  z-index: 10;
+  background-color: var(--cor-fundo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nome-usuario {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--cor-texto-claro);
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.controles-video {
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.controles-video button {
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.controles-video .btn-outline-dark {
+  border: 2px solid #296cb9;
+  color: #296cb9;
+}
+
+.controles-video .btn-outline-dark:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+}
+
+.controles-video .btn-danger {
+  width: auto;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--cor-erro);
+  border-color: var(--cor-erro);
+}
+
+.controles-video .btn-danger:hover {
+  background-color: #c0392b;
+  border-color: #c0392b;
+}
+
+.status-conexao {
+  font-size: 0.8rem;
+  color: var(--cor-sucesso);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.status-conexao i {
+  margin-right: 5px;
+}
+
+.timer-consulta {
+  font-size: 0.9rem;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+.rodape {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-claro);
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .video-paciente {
+    width: 120px;
+    height: 90px;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .video-principal {
+    height: 300px;
+  }
+
+  .controles-video button {
+    width: 45px;
+    height: 45px;
+    margin: 0 0.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .video-container {
+    padding: 1rem;
+  }
+
+  .video-paciente {
+    width: 100px;
+    height: 75px;
+  }
+
+  .video-principal {
+    height: 250px;
+  }
+
+  .controles-video {
+    display: flex;
+    justify-content: center;
+  }
+
+  .controles-video button {
+    width: 40px;
+    height: 40px;
+    margin: 0 0.2rem;
+  }
+
+  .controles-video .btn-danger {
+    padding: 0.4rem 1rem;
+  }
+}
