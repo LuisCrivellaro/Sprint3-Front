@@ -1,0 +1,719 @@
+:root {
+    --cor-primaria: #3498db;
+    --cor-secundaria: #2980b9;
+    --cor-terciaria: #e8f4f8;
+    --cor-texto: #333;
+    --cor-texto-claro: #f8f9fa;
+    --cor-fundo: white;
+    --cor-borda: #e1e1e1;
+    --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --raio-borda: 8px;
+    --espacamento: 100px;
+    
+    --cor-laudo: #17a2b8;
+    --cor-receita: #28a745;
+    --cor-atestado: #ffc107;
+    --cor-exame: #dc3545;
+  
+    --cor-cardiologia: #17a2b8;
+    --cor-dermatologia: #28a745;
+    --cor-pediatria: #ffc107;
+    --cor-psicologia: #6f42c1;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--cor-texto);
+    background-color: #f9fbfd;
+    line-height: 1.6;
+    padding-top: 80px;
+  }
+  
+  .cabecalho {
+    background-color: #1c1c1c;
+    box-shadow: var(--sombra-padrao);
+    color: white;
+  }
+  
+  .navbar {
+    background-color: #1c1c1c;
+    transition: top 0.3s ease-in-out;
+    padding: 16px 0;
+  }
+  
+  .navbar-brand img.logo-hospital {
+    height: 40px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: white;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s;
+  }
+  
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: var(--cor-primaria);
+  }
+  
+  .nav-item.botao-login .btn {
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 8px 16px;
+    border-radius: var(--raio-borda);
+    transition: all 0.3s;
+  }
+  
+  .nav-item.botao-login .btn:hover {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    transform: translateY(-2px);
+  }
+  
+  .secao-biblioteca {
+    padding: var(--espacamento) 0;
+  }
+  
+  .titulo-secao {
+    color: var(--cor-secundaria);
+    font-weight: 700;
+    margin-bottom: 12px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .titulo-secao::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: var(--cor-primaria);
+    bottom: -10px;
+    left: 0;
+    border-radius: var(--raio-borda);
+  }
+  
+  .subtitulo-secao {
+    color: #6c757d;
+    margin-bottom: 40px;
+  }
+  
+  .card {
+    border: none;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-padrao);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 15px 20px;
+  }
+  
+  .card-header h4 {
+    color: var(--cor-secundaria);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-filtros, 
+  .card-estatisticas {
+    margin-bottom: 24px;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    color: var(--cor-secundaria);
+    margin-bottom: 8px;
+  }
+  
+  .form-check-label {
+    color: var(--cor-texto);
+    font-weight: 400;
+  }
+  
+  .form-control, 
+  .form-select {
+    border-radius: var(--raio-borda);
+    border: 1px solid var(--cor-borda);
+    padding: 10px 15px;
+    transition: all 0.3s;
+  }
+  
+  .form-control:focus, 
+  .form-select:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+  }
+  
+  .btn-primary {
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    border-radius: var(--raio-borda);
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    transform: translateY(-2px);
+  }
+  
+  .estatistica-item {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: var(--raio-borda);
+    background-color: #f8f9fa;
+    transition: all 0.3s;
+  }
+  
+  .estatistica-item:hover {
+    background-color: var(--cor-terciaria);
+  }
+  
+  .estatistica-valor {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--cor-primaria);
+  }
+  
+  .estatistica-label {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .card-busca {
+    margin-bottom: 24px;
+  }
+  
+  .input-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .btn-outline-secondary {
+    border-color: var(--cor-borda);
+    color: var(--cor-texto);
+  }
+  
+  .btn-outline-secondary:hover,
+  .btn-outline-secondary.active {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+  }
+  
+  .documentos-grid {
+    margin-bottom: 30px;
+  }
+  
+  .documento {
+    position: relative;
+    height: 100%;
+  }
+  
+  .tipo-documento {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .tipo-documento.laudo {
+    background-color: var(--cor-laudo);
+  }
+  
+  .tipo-documento.receita {
+    background-color: var(--cor-receita);
+  }
+  
+  .tipo-documento.atestado {
+    background-color: var(--cor-atestado);
+  }
+  
+  .tipo-documento.exame {
+    background-color: var(--cor-exame);
+  }
+  
+  .titulo-documento {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--cor-secundaria);
+    padding-right: 40px;
+  }
+  
+  .meta-documento {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .meta-item i {
+    margin-right: 5px;
+    color: var(--cor-primaria);
+  }
+  
+  .descricao-documento {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+    min-height: 45px;
+  }
+  
+  .badge {
+    padding: 6px 10px;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+  
+  .acoes-documento .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border: 1px solid var(--cor-borda);
+    border-radius: 50%;
+    margin-left: 5px;
+    transition: all 0.3s;
+  }
+  
+  .acoes-documento .btn:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+    border-color: var(--cor-primaria);
+  }
+  
+  .table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--cor-texto);
+    border-radius: var(--raio-borda);
+    overflow: hidden;
+  }
+  
+  .table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--cor-borda);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 15px;
+    color: var(--cor-secundaria);
+  }
+  
+  .table tbody tr {
+    transition: all 0.3s;
+  }
+  
+  .table tbody tr:hover {
+    background-color: var(--cor-terciaria);
+  }
+  
+  .table td {
+    padding: 15px;
+    vertical-align: middle;
+  }
+  
+  .pagination {
+    margin-top: 30px;
+  }
+  
+  .pagination .page-link {
+    color: var(--cor-primaria);
+    border-color: var(--cor-borda);
+    padding: 10px 20px;
+    margin: 0 3px;
+    border-radius: var(--raio-borda);
+    transition: all 0.3s;
+  }
+  
+  .pagination .page-link:hover {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+  }
+  
+  .pagination .page-item.active .page-link {
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+  }
+  
+  .modal-content {
+    border-radius: var(--raio-borda);
+    border: none;
+    box-shadow: var(--sombra-padrao);
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid var(--cor-borda);
+    background-color: var(--cor-terciaria);
+    padding: 20px;
+  }
+  
+  .modal-header .modal-title {
+    color: var(--cor-secundaria);
+    font-weight: 600;
+  }
+  
+  .modal-body {
+    padding: 30px;
+  }
+  
+  .informacoes-documento {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: var(--raio-borda);
+    margin-bottom: 20px;
+  }
+  
+  .informacoes-documento p {
+    margin-bottom: 10px;
+  }
+  
+  .conteudo-documento h6 {
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .conteudo-documento p {
+    margin-bottom: 15px;
+  }
+  
+  .analise-ia .card-header {
+    background-color: var(--cor-terciaria);
+  }
+  
+  .analise-ia .card-header h6 {
+    color: var(--cor-secundaria);
+  }
+  
+  .analise-ia ul {
+    margin-bottom: 20px;
+  }
+  
+  .analise-ia li {
+    margin-bottom: 8px;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid var(--cor-borda);
+    padding: 20px;
+  }
+  
+  .modal-footer .btn {
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: var(--raio-borda);
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .modal-footer .btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+  }
+  
+.assistente-ia {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: var(--cor-fundo);
+    border-radius: var(--raio-borda);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+  }
+  
+  .cabecalho-assistente {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .info-assistente {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar-assistente {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  
+  .avatar-assistente i {
+    color: var(--cor-primaria);
+  }
+  
+  .nome-assistente {
+    font-weight: 600;
+  }
+  
+  .acoes-assistente {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-minimizar, .btn-fechar {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-minimizar:hover, .btn-fechar:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .corpo-assistente {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .mensagens {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+  }
+  
+  .mensagem {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mensagem-assistente .conteudo-mensagem {
+    background-color: #f1f0f0;
+    color: var(--cor-texto);
+    border-radius: 18px 18px 18px 0;
+    padding: 12px 15px;
+    max-width: 80%;
+    align-self: flex-start;
+  }
+  
+  .mensagem-usuario .conteudo-mensagem {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border-radius: 18px 18px 0 18px;
+    padding: 12px 15px;
+    max-width: 80%;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  
+  .timestamp {
+    font-size: 0.7em;
+    color: #888;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+  
+  .entrada-mensagem {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--cor-borda);
+  }
+  
+  .entrada-mensagem input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.9em;
+  }
+  
+  .entrada-mensagem input:focus {
+    border-color: var(--cor-primaria);
+  }
+  
+  .btn-enviar {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-enviar:hover {
+    background-color: var(--cor-secundaria);
+  }
+  
+  .botao-assistente {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    z-index: 999;
+    font-size: 1.5em;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .botao-assistente:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05);
+  }
+  
+  
+  @media (max-width: 992px) {
+    .card-filtros {
+      margin-bottom: 30px;
+    }
+    
+    .estatistica-item {
+      margin-bottom: 10px;
+    }
+    
+    .documento {
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding-top: 70px;
+    }
+    
+    .navbar-brand img.logo-hospital {
+      height: 32px;
+    }
+    
+    .secao-biblioteca {
+      padding: 50px 0;
+    }
+    
+    .titulo-secao {
+      font-size: 24px;
+    }
+    
+    .subtitulo-secao {
+      font-size: 16px;
+    }
+    
+    .assistente-ia {
+      width: 300px;
+    }
+    
+    .corpo-assistente {
+      height: 350px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-busca .row {
+      row-gap: 10px;
+    }
+    
+    .assistente-ia {
+      width: calc(100% - 40px);
+      right: 20px;
+      bottom: 80px;
+    }
+    
+    .botao-assistente {
+      right: 20px;
+      bottom: 20px;
+    }
+    
+    .modal-dialog {
+      margin: 10px;
+    }
+  }

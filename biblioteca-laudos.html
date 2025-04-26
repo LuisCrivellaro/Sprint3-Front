@@ -1,4 +1,3 @@
-<!-- biblioteca-laudos.html - Biblioteca de Laudos -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,10 +7,9 @@
     <link rel="icon" href="logo-sabara - Copia.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles-biblioteca.css">
+    <link rel="stylesheet" href="stylesbiblioteca.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
     <header class="cabecalho">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
@@ -44,6 +42,7 @@
             </div>
         </nav>
     </header>
+
     <script>
         let lastScrollTop = 0;
         const navbar = document.querySelector('.navbar');
@@ -64,7 +63,6 @@
       </script>
     
 
-    <!-- Seção de Biblioteca de Laudos -->
     <section class="secao-biblioteca">
         <div class="container">
             <div class="row">
@@ -76,7 +74,6 @@
 
             <div class="row mt-4">
                 <div class="col-lg-3">
-                    <!-- Painel de Filtros -->
                     <div class="card card-filtros">
                         <div class="card-header">
                             <h4><i class="fas fa-filter me-2"></i>Filtros</h4>
@@ -134,7 +131,6 @@
                         </div>
                     </div>
 
-                    <!-- Estatísticas -->
                     <div class="card card-estatisticas mt-4">
                         <div class="card-header">
                             <h4><i class="fas fa-chart-pie me-2"></i>Estatísticas</h4>
@@ -165,7 +161,6 @@
                 </div>
 
                 <div class="col-lg-9">
-                    <!-- Barra de Busca e Ordenação -->
                     <div class="card card-busca">
                         <div class="card-body">
                             <div class="row g-2">
@@ -193,10 +188,8 @@
                         </div>
                     </div>
 
-                    <!-- Lista de Documentos (Visualização em Grid) -->
                     <div class="documentos-grid mt-4" id="visualizacaoGrid">
                         <div class="row g-4">
-                            <!-- Documento 1 -->
                             <div class="col-md-4">
                                 <div class="card documento">
                                     <div class="tipo-documento laudo">
@@ -221,7 +214,6 @@
                                 </div>
                             </div>
 
-                            <!-- Documento 2 -->
                             <div class="col-md-4">
                                 <div class="card documento">
                                     <div class="tipo-documento receita">
@@ -246,7 +238,6 @@
                                 </div>
                             </div>
 
-                            <!-- Documento 3 -->
                             <div class="col-md-4">
                                 <div class="card documento">
                                     <div class="tipo-documento atestado">
@@ -271,7 +262,6 @@
                                 </div>
                             </div>
 
-                            <!-- Documento 4 -->
                             <div class="col-md-4">
                                 <div class="card documento">
                                     <div class="tipo-documento exame">
@@ -296,7 +286,6 @@
                                 </div>
                             </div>
 
-                            <!-- Documento 5 -->
                             <div class="col-md-4">
                                 <div class="card documento">
                                     <div class="tipo-documento laudo">
@@ -321,7 +310,6 @@
                                 </div>
                             </div>
 
-                            <!-- Documento 6 -->
                             <div class="col-md-4">
                                 <div class="card documento">
                                     <div class="tipo-documento receita">
@@ -348,7 +336,6 @@
                         </div>
                     </div>
 
-                    <!-- Lista de Documentos (Visualização em Lista) -->
                     <div class="documentos-lista mt-4 d-none" id="visualizacaoLista">
                         <div class="table-responsive">
                             <table class="table table-hover">
@@ -440,7 +427,6 @@
                         </div>
                     </div>
 
-                    <!-- Paginação -->
                     <nav class="mt-4">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">
@@ -459,7 +445,6 @@
         </div>
     </section>
 
-    <!-- Modal de Visualização do Documento -->
     <div class="modal fade" id="modalDocumento" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -482,59 +467,14 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="conteudo-documento">
-                        <h6>Anamnese</h6>
-                        <p>Paciente comparece para avaliação de rotina. Relata episódios esporádicos de palpitações aos grandes esforços, sem outros sintomas associados. Nega síncope, dor torácica ou dispneia.</p>
-                        
-                        <h6>Exame Físico</h6>
-                        <p>PA: 120x80 mmHg, FC: 72 bpm, regular. Ausculta cardíaca: Ritmo regular em dois tempos, bulhas normofonéticas, sem sopros. Ausculta pulmonar: Murmúrio vesicular presente e simétrico, sem ruídos adventícios.</p>
-                        
-                        <h6>Exames Complementares</h6>
-                        <p>ECG: Ritmo sinusal, FC 68 bpm, intervalos normais, sem alterações de repolarização.</p>
-                        <p>Ecocardiograma: Função sistólica e diastólica normais. Cavidades com dimensões normais. Valvas sem alterações.</p>
-                        
-                        <h6>Diagnóstico</h6>
-                        <p>Avaliação cardiológica sem evidências de cardiopatia estrutural. Palpitações aos esforços sem repercussão hemodinâmica.</p>
-                        
-                        <h6>Conduta</h6>
-                        <p>Manter atividade física regular. Retorno em 1 ano para reavaliação. Procurar atendimento caso piora dos sintomas.</p>
-                    </div>
-                    
-                    <div class="analise-ia mt-4">
-                        <div class="card bg-light">
-                            <div class="card-header">
-                                <h6 class="mb-0"><i class="fas fa-robot me-2"></i>Análise da IA</h6>
-                            </div>
-                            <div class="card-body">
-                                <p>A Inteligência Artificial analisou este documento e identificou os seguintes pontos relevantes:</p>
-                                <ul>
-                                    <li>Palpitações aos esforços sem alterações em exames complementares sugerem origem benigna.</li>
-                                    <li>Todos os parâmetros cardíacos avaliados estão dentro da normalidade.</li>
-                                    <li>Recomendação de atividade física está alinhada com as diretrizes atuais para saúde cardiovascular.</li>
-                                </ul>
-                                <p class="mb-0">Confiança da análise: <span class="text-success fw-bold">99%</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary"><i class="fas fa-download me-2"></i>Baixar PDF</button>
-                    <button type="button" class="btn btn-info"><i class="fas fa-share-alt me-2"></i>Compartilhar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Componente Pop-up da IA -->
     <div class="assistente-ia" id="assistenteIA">
         <div class="cabecalho-assistente">
             <div class="info-assistente">
                 <div class="avatar-assistente">
                     <i class="fas fa-robot"></i>
                 </div>
-                <div class="nome-assistente">SABIA - Assistente Virtual</div>
+                <div class="nome-assistente">GuardianPro - Assistente Virtual</div>
             </div>
             <div class="acoes-assistente">
                 <button class="btn-minimizar" id="minimizarAssistente"><i class="fas fa-minus"></i></button>
@@ -545,7 +485,7 @@
             <div class="mensagens" id="mensagensAssistente">
                 <div class="mensagem mensagem-assistente">
                     <div class="conteudo-mensagem">
-                        Olá! Sou SABIA, o assistente virtual do Hospital Sabará. Como posso ajudar você hoje?
+                        Olá! Sou GuardianPro, o assistente virtual do Hospital Sabará. Como posso ajudar você hoje?
                     </div>
                     <div class="timestamp">Agora</div>
                 </div>

@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="styles-telemedicina.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
     <header class="cabecalho">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top">
           <div class="container">
@@ -43,6 +42,39 @@
           </div>
       </nav>
   </header>
+    <div class="assistente-ia" id="assistenteIA">
+      <div class="cabecalho-assistente">
+          <div class="info-assistente">
+              <div class="avatar-assistente">
+                  <i class="fas fa-robot"></i>
+              </div>
+              <div class="nome-assistente">GuardianPro - Assistente Virtual</div>
+          </div>
+          <div class="acoes-assistente">
+              <button class="btn-minimizar" id="minimizarAssistente"><i class="fas fa-minus"></i></button>
+              <button class="btn-fechar" id="fecharAssistente"><i class="fas fa-times"></i></button>
+          </div>
+      </div>
+      <div class="corpo-assistente">
+          <div class="mensagens" id="mensagensAssistente">
+              <div class="mensagem mensagem-assistente">
+                  <div class="conteudo-mensagem">
+                      Olá! Sou GuardianPro, o assistente virtual do Hospital Sabará. Como posso ajudar você hoje?
+                  </div>
+                  <div class="timestamp">Agora</div>
+              </div>
+          </div>
+          <div class="entrada-mensagem">
+              <input type="text" placeholder="Digite sua pergunta..." id="mensagemUsuario">
+              <button class="btn-enviar" id="enviarMensagem"><i class="fas fa-paper-plane"></i></button>
+          </div>
+      </div>
+  </div>
+
+  <div class="botao-assistente" id="botaoAssistente">
+      <i class="fas fa-robot"></i>
+  </div>
+
   <main class="videochamada">
     <div class="container mt-5">
       <h1 class="text-center mb-4">Consulta por Telemedicina</h1>

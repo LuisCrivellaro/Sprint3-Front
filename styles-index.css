@@ -1,9 +1,8 @@
-/* Estilos Gerais */
 :root {
   --cor-primaria: #3498db;
   --cor-secundaria: #2980b9;
   --cor-terciaria: #e8f4f8;
-  --cor-texto: #333;
+  --cor-texto: #ffffff;
   --cor-texto-claro: #f8f9fa;
   --cor-fundo: #1c1c1c;
   --cor-borda: #e1e1e1;
@@ -14,7 +13,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: var(--cor-texto);
+  color: #ffffff;
   background-color:#07172d;
   line-height: 1.6;
   overflow-x: hidden;
@@ -73,23 +72,24 @@ section {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Cabeçalho */
 .cabecalho {
-  background-color: var(--cor-fundo);
-  box-shadow: var(--sombra-padrao);
+  background-color: #121212; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .navbar {
   padding: 15px 0;
   display: flex;
   align-items: center;
-  background-color: var(--cor-fundo);
+  justify-content: space-between;
+  background-color: #121212; 
   transition: all 0.3s ease;
 }
 
 .navbar-brand {
   font-weight: 700;
   font-size: 24px;
+  gap: 20px;
 }
 
 .logo-hospital {
@@ -97,26 +97,46 @@ section {
   width: auto;
 }
 
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .navbar-nav .nav-item {
-  margin: 0 10px;
+  margin: 0;
 }
 
 .navbar-nav .nav-link {
-  color: var(--cor-texto);
+  color: #ffffff; 
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: var(--cor-primaria);
+  color: #00aaff; 
 }
 
 .botao-login .btn {
-  margin-left: 15px;
+  margin-left: 20px;
+  background-color: #007bff;
+  color: white;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Banner Principal */
+.botao-login .btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  gap: 20px;
+}
+
 .banner-principal {
   background-color: #0b1f33;
   padding: 120px 0;
@@ -149,13 +169,19 @@ section {
   box-shadow: var(--sombra-padrao);
 }
 
-/* Como Funciona */
 .como-funciona {
   background-color: #0b1f33;
+  color: #ffffff;
 }
+
+.titulo-secao {
+  color: white; 
+}
+
 
 .etapas {
   margin-top: 30px;
+  color: #cfcfcf;
 }
 
 .etapa {
@@ -186,11 +212,10 @@ section {
 }
 
 .etapa p {
-  color: #666;
+  color: #585858;
   font-size: 0.95em;
 }
 
-/* Vantagens da IA */
 .vantagens-ia {
   background-color: #0b1f33;
   padding: 100px 0;
@@ -237,9 +262,9 @@ section {
   color: #666;
 }
 
-/* Especialidades */
 .especialidades {
   background-color: #0b1f33;
+  color: var(--cor-texto);
 }
 
 .especialidade {
@@ -247,12 +272,14 @@ section {
   border: none;
   border-radius: var(--raio-borda);
   overflow: hidden;
+  color: var(--cor-texto);
   box-shadow: var(--sombra-padrao);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .especialidade:hover {
   transform: translateY(-5px);
+  color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
@@ -265,13 +292,14 @@ section {
 }
 
 .especialidade h3 {
+  color: #474747;
   font-size: 1.3em;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 .especialidade p {
-  color: #666;
+  color: #5a5a5a;
   font-size: 0.9em;
 }
 
@@ -433,7 +461,6 @@ section {
   background-color: var(--cor-secundaria);
 }
 
-/* Rodapé */
 .rodape {
   background-color: var(--cor-fundo);
   color: #ecf0f1;
@@ -526,14 +553,13 @@ section {
   opacity: 0.7;
 }
 
-/* Assistente IA */
 .assistente-ia {
   position: fixed;
   bottom: 90px;
   right: 20px;
   width: 350px;
   height: 450px;
-  background-color: var(--cor-fundo);
+  background-color: #ffffff;
   border-radius: var(--raio-borda);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -620,8 +646,8 @@ section {
 }
 
 .mensagem-assistente .conteudo-mensagem {
-  background-color: #f1f0f0;
-  color: var(--cor-texto);
+  background-color: #d3d3d3;
+  color: #1c1c1c;
   border-radius: 18px 18px 18px 0;
   padding: 12px 15px;
   max-width: 80%;
@@ -708,7 +734,6 @@ section {
   transform: scale(1.05);
 }
 
-/* Responsividade */
 @media (max-width: 991px) {
   .banner-principal {
       padding: 80px 0;

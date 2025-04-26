@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Variáveis para o assistente virtual
   const botaoAssistente = document.getElementById('botaoAssistente');
   const assistenteIA = document.getElementById('assistenteIA');
   const minimizarAssistente = document.getElementById('minimizarAssistente');
@@ -8,14 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const enviarMensagem = document.getElementById('enviarMensagem');
   const mensagensAssistente = document.getElementById('mensagensAssistente');
   
-  // Menu de navegação responsivo
   const navbarToggler = document.querySelector('.navbar-toggler');
   const navbarCollapse = document.querySelector('.navbar-collapse');
   
-  // Animação do menu na rolagem
   let prevScrollpos = window.pageYOffset;
   
-  // Controle do assistente virtual
   function toggleAssistente() {
       if (assistenteIA.style.display === 'none' || assistenteIA.style.display === '') {
           assistenteIA.style.display = 'flex';
@@ -44,15 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
   });
   
-  // Função para enviar mensagem do assistente
   function enviarMensagemAssistente() {
       const texto = mensagemUsuario.value.trim();
       if (texto) {
-          // Adicionar mensagem do usuário
           adicionarMensagem(texto, 'usuario');
           mensagemUsuario.value = '';
           
-          // Simular resposta do assistente depois de um tempo
           setTimeout(() => {
               const respostas = [
                   'Entendi! Vou verificar isso para você.',
@@ -67,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
   
-  // Função para adicionar mensagem ao chat
   function adicionarMensagem(texto, tipo) {
       const mensagemDiv = document.createElement('div');
       mensagemDiv.className = `mensagem mensagem-${tipo}`;
@@ -85,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       mensagensAssistente.appendChild(mensagemDiv);
       
-      // Rolar para a última mensagem
       mensagensAssistente.scrollTop = mensagensAssistente.scrollHeight;
   }
   
@@ -97,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
   
-  // Animação navbar no scroll
   window.onscroll = function() {
       const currentScrollPos = window.pageYOffset;
       const navbar = document.querySelector('.navbar');
@@ -121,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
       prevScrollpos = currentScrollPos;
   };
   
-  // Animação para elementos na visualização
   function animateOnScroll() {
       const elements = document.querySelectorAll('.etapa, .especialidade, .lista-vantagens li');
       
@@ -136,16 +125,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
   
-  // Inicialmente, definir a opacidade dos elementos para 0
   document.querySelectorAll('.etapa, .especialidade, .lista-vantagens li').forEach(element => {
       element.style.opacity = '0';
   });
   
-  // Chamar a função de animação no carregamento e no scroll
   window.addEventListener('load', animateOnScroll);
   window.addEventListener('scroll', animateOnScroll);
   
-  // Smooth scrolling para links internos
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
           e.preventDefault();
@@ -163,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   behavior: 'smooth'
               });
               
-              // Fechar o menu móvel se estiver aberto
               if (navbarCollapse.classList.contains('show')) {
                   navbarToggler.click();
               }
@@ -171,12 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
   
-  // Adicionar comportamento para controles de vídeo (simulação)
   const controlesVideo = document.querySelectorAll('.btn-controle');
   
   controlesVideo.forEach(controle => {
       controle.addEventListener('click', function() {
-          // Simula interação com os controles do vídeo
           if (this.querySelector('.fa-microphone-slash')) {
               this.innerHTML = '<i class="fas fa-microphone"></i>';
           } else if (this.querySelector('.fa-microphone')) {
@@ -189,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
   
-  // Inicialização do pop-up do assistente
   assistenteIA.style.opacity = '0';
   assistenteIA.style.transform = 'translateY(20px)';
   assistenteIA.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
