@@ -5,7 +5,7 @@ import AssistenteVirtual from "../components/AssistenteVirtual";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
+//resolver futuramente esses 1001 bugs
 export default function Home() {
   const [assistenteVisible, setAssistenteVisible] = useState(false);
   const [navbarStyle, setNavbarStyle] = useState({
