@@ -1,0 +1,23 @@
+$cor-principal: #0d6efd;
+$espacamento: 20px;
+
+.titulo {
+  color: $cor-principal;
+  font-weight: bold;
+  text-align: center;
+  margin-top: $espacamento;
+}
+
+.botao-adicionar {
+  background-color: darkgreen;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: green;
+    transform: scale(1.05);
+  }
+}
